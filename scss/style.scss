@@ -1,0 +1,32 @@
+@import 'variables', 'mixins', 'normalize';
+@import 'parts/table-box', 'parts/sidebar', 'parts/menu';
+html {
+  &:before {
+    content: "#{inspect($breakpoints)}";
+    display: none;
+  }
+}
+.clearfix {
+  @each $pseudo in after before {
+    &:#{$pseudo} {
+      content: '';
+      display: table;
+    }
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+.wrapper {
+  max-width: 1400px;
+  min-width: 990px;
+  margin: auto;
+}
+.page-wrap {
+  padding: 0 10px;
+}
+body {
+  font-family: Arial;
+}
+
